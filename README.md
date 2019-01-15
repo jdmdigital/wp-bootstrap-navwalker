@@ -20,26 +20,26 @@ Bootstrap 4.0.0 released January 2018 and is the default branch offered at the G
 
 ## Installation
 
-Place **wp-bootstrap-navwalker.php** in your WordPress theme folder `/wp-content/your-theme/`
+Place **wp_bootstrap_navwalker-multilevel.php** in your WordPress theme folder `/wp-content/your-theme/`
 
 Open your WordPress themes **functions.php** file  `/wp-content/your-theme/functions.php` and add the following code:
 
 ```php
 <?php
 // Register Custom Navigation Walker
-require_once get_template_directory() . '/wp-bootstrap-navwalker.php';
+require_once get_template_directory() . '/wp_bootstrap_navwalker-multilevel.php';
 ```
 
 If you encounter errors with the above code use a check like this to return clean errors to help diagnose the problem.
 
 ```php
 <?php
-if ( ! file_exists( get_template_directory() . '/wp-bootstrap-navwalker.php' ) ) {
+if ( ! file_exists( get_template_directory() . '/wp_bootstrap_navwalker-multilevel.php' ) ) {
 	// file does not exist... return an error.
-	return new WP_Error( 'wp-bootstrap-navwalker-missing', __( 'It appears the wp-bootstrap-navwalker.php file may be missing.', 'wp-bootstrap-navwalker' ) );
+	return new WP_Error( 'wp-bootstrap-navwalker-missing', __( 'It appears the wp_bootstrap_navwalker-multilevel.php file may be missing.', 'wp-bootstrap-navwalker' ) );
 } else {
 	// file exists... require it.
-    require_once get_template_directory() . '/wp-bootstrap-navwalker.php';
+    require_once get_template_directory() . '/wp_bootstrap_navwalker-multilevel.php';
 }
 ```
 
@@ -108,6 +108,10 @@ Typically the menu is wrapped with additional markup, here is an example of a ` 
 To change your menu style add Bootstrap nav class names to the `menu_class` declaration.
 
 Review options in the Bootstrap docs for more information on [nav classes](https://getbootstrap.com/components/#nav).
+
+### Extra CSS and JS 
+
+Because secondary dropdowns are not supported in Bootstrap natively, there is some extra CSS and JS you'll need to add.  Details on those can be found on the JDM Digital blog post, here: https://jdmdig.it/2zOp3OF
 
 
 ### Displaying the Menu
